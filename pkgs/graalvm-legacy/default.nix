@@ -68,19 +68,21 @@ rec {
     javaVersion = "11";
     version = "22.3.1";
     src = fetchurl (source "js-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   llvm-installable-svm-java11 = callPackage ./llvm-installable-svm.nix rec {
     javaVersion = "11";
     version = "22.3.1";
     src = fetchurl (source "llvm-installable-svm" javaVersion);
-
+    inherit buildGraalvmProduct;
   };
 
   native-image-installable-svm-java11 = callPackage ./native-image-installable-svm.nix rec {
     javaVersion = "11";
     version = "22.3.1";
     src = fetchurl (source "native-image-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   nodejs-installable-svm-java11 = callPackage ./nodejs-installable-svm.nix rec {
@@ -88,12 +90,14 @@ rec {
     version = "22.3.1";
     src = fetchurl (source "nodejs-installable-svm" javaVersion);
     graalvm-ce = graalvm11-ce-bare;
+    inherit buildGraalvmProduct;
   };
 
   python-installable-svm-java11 = callPackage ./python-installable-svm.nix rec {
     javaVersion = "11";
     version = "22.3.1";
     src = fetchurl (source "python-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   ruby-installable-svm-java11 = callPackage ./ruby-installable-svm.nix rec {
@@ -101,12 +105,14 @@ rec {
     version = "22.3.1";
     src = fetchurl (source "ruby-installable-svm" javaVersion);
     llvm-installable-svm = llvm-installable-svm-java11;
+    inherit buildGraalvmProduct;
   };
 
   wasm-installable-svm-java11 = callPackage ./wasm-installable-svm.nix rec {
     javaVersion = "11";
     version = "22.3.1";
     src = fetchurl (source "wasm-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   ### Java 17 ###
@@ -141,18 +147,21 @@ rec {
     javaVersion = "17";
     version = "22.3.1";
     src = fetchurl (source "js-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   llvm-installable-svm-java17 = callPackage ./llvm-installable-svm.nix rec {
     javaVersion = "17";
     version = "22.3.1";
     src = fetchurl (source "llvm-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   native-image-installable-svm-java17 = callPackage ./native-image-installable-svm.nix rec {
     javaVersion = "17";
     version = "22.3.1";
     src = fetchurl (source "native-image-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   nodejs-installable-svm-java17 = callPackage ./nodejs-installable-svm.nix rec {
@@ -160,12 +169,14 @@ rec {
     version = "22.3.1";
     src = fetchurl (source "nodejs-installable-svm" javaVersion);
     graalvm-ce = graalvm17-ce-bare;
+    inherit buildGraalvmProduct;
   };
 
   python-installable-svm-java17 = callPackage ./python-installable-svm.nix rec {
     javaVersion = "17";
     version = "22.3.1";
     src = fetchurl (source "python-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   ruby-installable-svm-java17 = callPackage ./ruby-installable-svm.nix rec {
@@ -173,12 +184,14 @@ rec {
     version = "22.3.1";
     src = fetchurl (source "ruby-installable-svm" javaVersion);
     llvm-installable-svm = llvm-installable-svm-java17;
+    inherit buildGraalvmProduct;
   };
 
   wasm-installable-svm-java17 = callPackage ./wasm-installable-svm.nix rec {
     javaVersion = "17";
     version = "22.3.1";
     src = fetchurl (source "wasm-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   ### Java 19 ###
@@ -220,6 +233,7 @@ rec {
     javaVersion = "19";
     version = "22.3.1";
     src = fetchurl (source "llvm-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   native-image-installable-svm-java19 = callPackage ./native-image-installable-svm.nix rec {
@@ -234,12 +248,14 @@ rec {
     version = "22.3.1";
     src = fetchurl (source "nodejs-installable-svm" javaVersion);
     graalvm-ce = graalvm19-ce-bare;
+    inherit buildGraalvmProduct;
   };
 
   python-installable-svm-java19 = callPackage ./python-installable-svm.nix rec {
     javaVersion = "19";
     version = "22.3.1";
     src = fetchurl (source "python-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   ruby-installable-svm-java19 = callPackage ./ruby-installable-svm.nix rec {
@@ -247,11 +263,13 @@ rec {
     version = "22.3.1";
     src = fetchurl (source "ruby-installable-svm" javaVersion);
     llvm-installable-svm = llvm-installable-svm-java19;
+    inherit buildGraalvmProduct;
   };
 
   wasm-installable-svm-java19 = callPackage ./wasm-installable-svm.nix rec {
     javaVersion = "19";
     version = "22.3.1";
     src = fetchurl (source "wasm-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 }

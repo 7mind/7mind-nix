@@ -1,14 +1,14 @@
 { lib
 , stdenv
-, graalvm-legacy-packages
 , llvm-installable-svm
 , openssl
 , javaVersion
 , src
 , version
+, buildGraalvmProduct
 }:
 
-graalvm-legacy-packages.buildGraalvmProduct rec {
+buildGraalvmProduct rec {
   inherit src javaVersion version;
   product = "ruby-installable-svm";
 

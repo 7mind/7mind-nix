@@ -1,13 +1,13 @@
 { lib
 , stdenv
-, graalvm-legacy-packages
 , graalvm-ce
 , javaVersion
 , src
 , version
+, buildGraalvmProduct
 }:
 
-graalvm-legacy-packages.buildGraalvmProduct rec {
+buildGraalvmProduct rec {
   inherit src javaVersion version;
   product = "nodejs-installable-svm";
 
