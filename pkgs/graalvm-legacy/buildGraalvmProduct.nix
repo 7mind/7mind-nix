@@ -5,7 +5,7 @@
 , perl
 , unzip
 , zlib
-, libxcrypt
+, libxcrypt-legacy
   # extra params
 , product
 , javaVersion
@@ -46,7 +46,7 @@ stdenv.mkDerivation ({
   buildInputs = [
     stdenv.cc.cc.lib # libstdc++.so.6
     zlib
-    libxcrypt
+    libxcrypt-legacy
   ] ++ extraBuildInputs;
 
   unpackPhase = ''
