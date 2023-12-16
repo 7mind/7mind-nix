@@ -22,20 +22,6 @@ in
 rec {
   inherit buildGraalvm buildGraalvmProduct;
 
-  graalvm19-ce-js = graalvm19-ce-bare.override {
-    products = [
-      js-installable-svm-java19
-      native-image-installable-svm-java19
-    ];
-  };
-
-  graalvm11-ce-js = graalvm11-ce-bare.override {
-    products = [
-      js-installable-svm-java11
-      native-image-installable-svm-java11
-    ];
-  };
-
   ### Java 11 ###
 
   # Mostly available for build purposes, not to be exposed at the top level
@@ -61,6 +47,13 @@ rec {
       python-installable-svm-java11
       ruby-installable-svm-java11
       wasm-installable-svm-java11
+    ];
+  };
+
+  graalvm11-ce-js = graalvm11-ce-bare.override {
+    products = [
+      js-installable-svm-java11
+      native-image-installable-svm-java11
     ];
   };
 
@@ -143,6 +136,13 @@ rec {
     ];
   };
 
+  graalvm17-ce-js = graalvm17-ce-bare.override {
+    products = [
+      js-installable-svm-java17
+      native-image-installable-svm-java17
+    ];
+  };
+
   js-installable-svm-java17 = callPackage ./js-installable-svm.nix rec {
     javaVersion = "17";
     version = "22.3.1";
@@ -219,6 +219,13 @@ rec {
       python-installable-svm-java19
       ruby-installable-svm-java19
       wasm-installable-svm-java19
+    ];
+  };
+
+  graalvm19-ce-js = graalvm19-ce-bare.override {
+    products = [
+      js-installable-svm-java19
+      native-image-installable-svm-java19
     ];
   };
 
