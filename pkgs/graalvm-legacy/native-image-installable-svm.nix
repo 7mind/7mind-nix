@@ -1,6 +1,6 @@
 { lib
 , stdenv
-, graalvm-legacy-packages
+, buildGraalvmProduct
 , gcc
 , glibc
 , javaVersion
@@ -23,7 +23,7 @@ let
   musl-gcc = (writeShellScriptBin "${stdenv.hostPlatform.system}-musl-gcc" ''${lib.getDev musl}/bin/musl-gcc "$@"'');
   binPath = lib.makeBinPath ([ gcc ] ++ lib.optionals useMusl [ musl-gcc ]);
 in
-graalvm-legacy-packages.buildGraalvmProduct rec {
+buildGraalvmProduct rec {
   inherit src javaVersion version;
   product = "native-image-installable-svm";
 

@@ -1,12 +1,12 @@
 { lib
 , stdenv
-, graalvm-legacy-packages
 , javaVersion
 , src
 , version
+, buildGraalvmProduct
 }:
 
-graalvm-legacy-packages.buildGraalvmProduct rec {
+buildGraalvmProduct rec {
   inherit src javaVersion version;
   product = "js-installable-svm";
 

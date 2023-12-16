@@ -14,7 +14,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  graalvmCELegacyPackages =
+  graalvm-legacy-packages =
     pkgs.lib.recurseIntoAttrs (pkgs.callPackage ./pkgs/graalvm-legacy { });
 
   # graalvm11-ce = graalvmCEPackages.graalvm11-ce;

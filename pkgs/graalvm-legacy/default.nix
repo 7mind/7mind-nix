@@ -74,6 +74,7 @@ rec {
     javaVersion = "11";
     version = "22.3.1";
     src = fetchurl (source "llvm-installable-svm" javaVersion);
+
   };
 
   native-image-installable-svm-java11 = callPackage ./native-image-installable-svm.nix rec {
@@ -212,6 +213,7 @@ rec {
     javaVersion = "19";
     version = "22.3.1";
     src = fetchurl (source "js-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   llvm-installable-svm-java19 = callPackage ./llvm-installable-svm.nix rec {
@@ -224,6 +226,7 @@ rec {
     javaVersion = "19";
     version = "22.3.1";
     src = fetchurl (source "native-image-installable-svm" javaVersion);
+    inherit buildGraalvmProduct;
   };
 
   nodejs-installable-svm-java19 = callPackage ./nodejs-installable-svm.nix rec {
