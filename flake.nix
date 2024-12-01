@@ -19,12 +19,17 @@
       });
       packages = forAllSystems (system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system});
 
+      overlay = final: prev: {
+        septimalmind = import ./default.nix {
+          pkgs = prev;
+        };
+      };
       nixosModules.septimalmind =
         { lib, pkgs, ... }:
         {
-          options.nur = lib.mkOption {
+          options.septimalmind = lib.mkOption {
             type = lib.mkOptionType {
-              name = "nur";
+              name = "septimalmind";
               description = "An instance of the 7mind Nix repository";
               check = builtins.isAttrs;
             };
