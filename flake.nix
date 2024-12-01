@@ -18,5 +18,21 @@
         pkgs = import nixpkgs { inherit system; };
       });
       packages = forAllSystems (system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system});
+
+      nixosModules.septimalmind =
+        { lib, pkgs, ... }:
+        {
+          options.nur = lib.mkOption {
+            type = lib.mkOptionType {
+              name = "nur";
+              description = "An instance of the 7mind Nix repository";
+              check = builtins.isAttrs;
+            };
+            description = "Use this option to import packages from 7mind repository";
+            default = import self {
+              pkgs = pkgs;
+            };
+          };
+        };
     };
 }
